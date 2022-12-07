@@ -92,7 +92,7 @@ def go(args):
     mlflow.sklearn.save_model(sk_pipe, RandomForestDir, serialization_format=mlflow.sklearn.SERIALIZATION_FORMAT_CLOUDPICKLE)
 
     logger.info("Uploading model to wandb")
-    artifact = wandb.Artifact(args.output_artifact, type='model_export', descripttion="Random Forest Classifier for NY rental prices", metadata={rf_config: args.rf_config})
+    artifact = wandb.Artifact(args.output_artifact, type='model_export', description="Random Forest Classifier for NY rental prices", metadata=rf_config)
     artifact.add_dir(RandomForestDir)
     run.log_artifact(artifact)
 

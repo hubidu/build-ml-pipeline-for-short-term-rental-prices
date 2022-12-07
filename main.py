@@ -112,12 +112,14 @@ def go(config: DictConfig):
             )
 
         if "test_regression_model" in active_steps:
-
-            ##################
-            # Implement here #
-            ##################
-
-            pass
+            _ = mlflow.run(
+                "file://localhost/Users/huberstefa/Projects/machine-learning-devops/project-build-ml-pipeline-for-rental-prices/components/test_regression_model",
+                "main",
+                parameters={
+                    "mlflow_model": "random_forest_export:prod",
+                    "test_dataset": "test_data.csv:latest",
+                },
+            )
 
 
 if __name__ == "__main__":
