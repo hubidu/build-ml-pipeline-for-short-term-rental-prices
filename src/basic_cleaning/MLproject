@@ -4,31 +4,29 @@ conda_env: conda.yml
 entry_points:
   main:
     parameters:
-
       input_artifact:
-        description: ## ADD DESCRIPTION
+        description: Name and version of input artifact to get from wandb
         type: string
 
       output_artifact:
-        description: ## ADD DESCRIPTION
+        description: Name of output artifact to store in wandb
         type: string
 
       output_type:
-        description: ## ADD DESCRIPTION
+        description: The output type
         type: string
 
       output_description:
-        description: ## ADD DESCRIPTION
+        description: Description of the output artifact
         type: string
 
       min_price:
-        description: ## ADD DESCRIPTION
-        type: string
+        description: Minimum price threshold
+        type: float
 
       max_price:
-        description: ## ADD DESCRIPTION
-        type: string
-
+        description: Maximum price threshold
+        type: float
 
     command: >-
-        python run.py  --input_artifact {input_artifact}  --output_artifact {output_artifact}  --output_type {output_type}  --output_description {output_description}  --min_price {min_price}  --max_price {max_price} 
+      python run.py  --input_artifact {input_artifact}  --output_artifact {output_artifact}  --output_type {output_type}  --output_description {output_description}  --min_price {min_price}  --max_price {max_price}
